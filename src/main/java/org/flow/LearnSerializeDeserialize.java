@@ -18,7 +18,7 @@ public class LearnSerializeDeserialize {
         emp1.Address = "Home";
         try {
             FileOutputStream fos = new FileOutputStream(
-                    "D:\\Study\\Bhasha\\src\\main\\java\\org\\flow\\fileOutputStream.txt");
+                    "D:\\Study\\Bhasha\\src\\main\\resources\\fileOutputStream.txt");
             ObjectOutputStream out = new ObjectOutputStream(fos);
             out.writeObject(emp1);
             out.close();
@@ -30,12 +30,12 @@ public class LearnSerializeDeserialize {
 
             // Deserialize==============================================
             FileInputStream fis = new FileInputStream(
-                    "D:\\Study\\Bhasha\\src\\main\\java\\org\\flow\\fileOutputStream.txt");
+                    "D:\\Study\\Bhasha\\src\\main\\resources\\fileOutputStream.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             Employee emp2 = (Employee) ois.readObject();
             fis.close();
             ois.close();
-            System.out.println("Deserialize");
+            System.out.println("Deserialized");
             System.err.println(gson.toJson(emp2));
             // ========================================================
 
