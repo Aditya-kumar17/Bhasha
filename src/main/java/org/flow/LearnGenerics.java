@@ -1,6 +1,7 @@
 package org.flow;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 public class LearnGenerics {
     public static void main(String[] args) {
@@ -19,9 +20,15 @@ public class LearnGenerics {
         System.out.println(obj5.printPassedValue("args"));
         System.out.println(obj5.printPassedValue(123));
         System.out.println(obj5.printPassedValue(new JsonArray()));
+        
+        System.out.println(obj5.returnValue(new JsonObject()));
         obj5.printValue("args");
         obj5.printValue(123);
         obj5.printValue(new JsonArray());
+
+        obj5.printIntValue(123);
+        // obj5.printIntValue("123");
+        // above code will not work as its parametrized and bounded to only integer
 
     }
 }
@@ -74,6 +81,16 @@ class Test2Generics<T, U> {
     // without <X>
     // Generic method with one new generic variable
     public <X> void printValue(X value) {
+        System.out.println(value);
+    }
+    
+    // returning the parameter type
+    public <X> X returnValue(X value) {
+        return value;
+    }
+
+    // Bounded Type parameter/Generics
+    public <Y extends Integer> void printIntValue(Y value){
         System.out.println(value);
     }
 }
