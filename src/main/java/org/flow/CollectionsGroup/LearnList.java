@@ -169,7 +169,18 @@ public class LearnList {
         List<Integer> ArrList1 = Arrays.stream(arr2).boxed().collect(Collectors.toCollection(ArrayList::new));
 
 
+        // +--------------------------------+
+        // |____Thread Safe ArrayList_______|
+        // +--------------------------------+
         List<Integer> threadSafeList = new CopyOnWriteArrayList<>();
+
+        // +------------------------+
+        // |____Sub ArrayList_______|
+        // +------------------------+
+        List<Integer> testList4 = new ArrayList<>(Arrays.asList(1,2,33,54,5,44,45,7,8,9,36,32,66,4,9,39,1,7,6,4,3,99,22,6));
+        List<Integer> subList = testList4.subList(0,15);
+        System.out.println(subList);
+
 
     }
 }
