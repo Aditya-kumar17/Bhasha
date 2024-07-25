@@ -3,10 +3,12 @@ package org.flow;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 import com.google.gson.Gson;
 
@@ -60,6 +62,15 @@ public class LearnFunctionalInterface {
 
         // Function
         // BiFunction is also there which takes two arguments
+
+        // Unary Operator extends Function
+        // accepts only one argument and returns a single argument only
+        // both the input and output values must be identical and of the same type
+
+        // Binary Operator extends Bi-Function
+        // takes two values and returns one value
+        // input and output value types must be identical and of the same type
+
         Function<Integer, String> getInt = t -> t * 10 + " Data multiplied by 10";
         // ......input... result
         System.out.println(getInt.apply(2));
@@ -67,6 +78,12 @@ public class LearnFunctionalInterface {
         BiFunction<Integer, Integer, String> addAndConvertToStrint = (a, b) -> "Adding two Number: " + (a + b);
         // .......input.....input....result
         System.out.println(addAndConvertToStrint.apply(10, 20));
+
+        UnaryOperator<Integer> unaryOperator = t -> t * 10;
+        System.out.println("UnaryOperator: " + unaryOperator.apply(10));
+
+        BinaryOperator<Integer> binaryOperator = (a, b) -> a + b;
+        System.out.println("BinaryOperator " + binaryOperator.apply(10, 10));
 
         // Supplier
         Supplier<Double> getRandomDouble = () -> Math.random();
