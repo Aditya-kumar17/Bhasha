@@ -1,14 +1,16 @@
-package org.flow;
+package org.flow.CollectionsGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class LearnCollection {
+public class LearnList {
 
     public static void main(String[] args) {
         // ----- Implement
@@ -52,10 +54,10 @@ public class LearnCollection {
         System.out.println(intList);
         intList.remove(Integer.valueOf(2)); // remove first occurance of 2
 
-        Iterator itr = intList.iterator();
+        Iterator<Integer> itr = intList.iterator();
 
         while (itr.hasNext()) {
-            int x = (int) itr.next();
+            int x = itr.next();
             if (x == 3)
                 itr.remove();
         }
@@ -117,12 +119,57 @@ public class LearnCollection {
 //        System.out.println("reversed List" + testList2);
 
 //        Option 3
-        List<Integer> reversedList = new ArrayList<>();
-        for(int i = testList2.size()-1; i>=0; i--){
-            reversedList.add(testList2.get(i));
+        // List<Integer> reversedList = new ArrayList<>();
+        // for(int i = testList2.size()-1; i>=0; i--){
+        //     reversedList.add(testList2.get(i));
+        // }
+        // System.out.println("List" + testList2);
+        // System.out.println("reversedList" + reversedList);
+
+        // Option 4
+        ListIterator<Integer> itr2 = testList2.listIterator(testList2.size());
+        List<Integer> reverseList = new ArrayList<>();
+        while(itr2.hasPrevious()){
+            reverseList.add(itr2.previous());
         }
         System.out.println("List" + testList2);
-        System.out.println("reversedList" + reversedList);
+        System.out.println("reversedList" + reverseList);
+
+
+        // +-----------------------------------------------------------------+
+        // |____Convert an ArrayList of String to a String Array in Java_____|
+        // +-----------------------------------------------------------------+
+        List<Integer> testList3 = new ArrayList<>(Arrays.asList(1,2,33,54,5,44,45,7,8,9,36,32,66,4,9,39,1,7,6,4,3,99,22,6));
+        int[] intArray = new int[testList3.size()];
+        for(int i =0;i<intArray.length; i++){
+            intArray[i] = testList3.get(i);
+        }
+
+        System.out.println("ArrayList" + testList3);
+        System.out.println("String Array1" + Arrays.toString(intArray));
+        System.out.println("String Array2" + Arrays.toString(testList3.toArray()));
+
+        Integer[] intArray2 = testList3.toArray(new Integer[testList3.size()]);
+
+        System.out.println("String Array3" + Arrays.toString(intArray2));
+
+        int[] intArray3 = testList3.stream().mapToInt(Integer::intValue).toArray();
+
+        int[] intArray4 = new int[testList3.size()];
+        Arrays.setAll(intArray4, testList3::get);
+
+
+        // +-----------------------------------------------------------------+
+        // |____Convert an String Array to ArrayList of String in Java_______|
+        // +-----------------------------------------------------------------+
+
+        int[] arr1 = new int[1];
+        int[] arr2 = {1,2,3,6,4,5,6,8};
+
+        List<Integer> ArrList1 = Arrays.stream(arr2).boxed().collect(Collectors.toCollection(ArrayList::new));
+
+
+        List<Integer> threadSafeList = new CopyOnWriteArrayList<>();
 
     }
 }
