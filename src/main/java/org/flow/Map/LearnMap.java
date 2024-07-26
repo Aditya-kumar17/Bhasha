@@ -1,4 +1,4 @@
-package org.flow.CollectionsGroup.Map;
+package org.flow.Map;
 
 import java.util.*;
 import java.util.function.Consumer;
