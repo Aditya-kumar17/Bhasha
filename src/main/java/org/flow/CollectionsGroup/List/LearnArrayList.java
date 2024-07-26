@@ -1,4 +1,4 @@
-package org.flow.CollectionsGroup;
+package org.flow.CollectionsGroup.List;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class LearnList {
+public class LearnArrayList {
 
     public static void main(String[] args) {
         // ----- Implement
@@ -22,7 +22,7 @@ public class LearnList {
         // └───>Vector<--┐
         // ____Stack-----┘
 
-        // Creation
+        // Initialize
         List<String> list1 = new ArrayList<>();
         List<String> list2 = new ArrayList<>(20);
         List<String> list3 = new ArrayList<>(Arrays.asList("A", "B"));
@@ -54,6 +54,7 @@ public class LearnList {
         System.out.println(intList);
         intList.remove(Integer.valueOf(2)); // remove first occurance of 2
 
+//      Iterator
         Iterator<Integer> itr = intList.iterator();
 
         while (itr.hasNext()) {
@@ -136,6 +137,20 @@ public class LearnList {
         System.out.println("reversedList" + reverseList);
 
 
+        // +------------------------------------+
+        // |____reverse an Array of Objects_____|
+        // +------------------------------------+
+        Employee e1 = new Employee(351,"Sam", "Phoenix");
+        Employee e2 = new Employee(453,"Max", "NY");
+        Employee e3 = new Employee(42,"Andre", "Brazil");
+        Employee e4 = new Employee(6,"David", "Gaza");
+        List<Employee> empList = new ArrayList<>(Arrays.asList(e1,e2,e3,e4));
+        System.out.println("Employee List: " + empList.toString());
+        Collections.reverse(empList);
+        System.out.println("Employee List reversed: " + empList.toString());
+
+
+
         // +-----------------------------------------------------------------+
         // |____Convert an ArrayList of String to a String Array in Java_____|
         // +-----------------------------------------------------------------+
@@ -183,4 +198,25 @@ public class LearnList {
 
 
     }
+}
+
+class Employee{
+    public Employee(int id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "it=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    public int id;
+    public String name;
+    public String address;
 }
