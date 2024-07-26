@@ -1,5 +1,17 @@
 package org.flow.CollectionsGroup.List.LinkedList.DoublyCircular;
 
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
 public class LearnDoublyCircularLinkedList {
 
     Node head;
@@ -32,14 +44,4 @@ public class LearnDoublyCircularLinkedList {
         }
     }
 }
-class Node {
-    int data;
-    Node next;
-    Node prev;
 
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-        this.prev = null;
-    }
-}

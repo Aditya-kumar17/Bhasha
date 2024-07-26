@@ -1,5 +1,15 @@
 package org.flow.CollectionsGroup.List.LinkedList.Circular;
 
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
 public class LearnCircularLinkedList {
     Node head;
 
@@ -28,12 +38,4 @@ public class LearnCircularLinkedList {
         }
     }
 }
-class Node {
-    int data;
-    Node next;
 
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
