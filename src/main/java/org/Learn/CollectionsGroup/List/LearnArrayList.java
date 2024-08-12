@@ -13,15 +13,6 @@ import java.util.stream.Collectors;
 public class LearnArrayList {
 
     public static void main(String[] args) {
-        // ----- Implement
-        // ───── Extend
-
-        // List
-        // └───>ArrayList
-        // └───>LinkedList
-        // └───>Vector<--┐
-        // ____Stack-----┘
-
         // Initialize
         List<String> list1 = new ArrayList<>();
         List<String> list2 = new ArrayList<>(20);

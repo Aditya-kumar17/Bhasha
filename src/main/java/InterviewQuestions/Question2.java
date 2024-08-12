@@ -1,4 +1,4 @@
-package org.Learn.InterviewQuestions;
+package InterviewQuestions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +15,12 @@ public class Question2 {
                 .flatMap(t -> t.chars().mapToObj(v -> (char) v)).collect(Collectors.toCollection(ArrayList::new));//mutable
 //        ______________________________________________________.toList() Immutable
 
+List<Character> characters1 = titles.stream()
+                .flatMap(t -> t.chars().mapToObj(v -> (char) v)).map(x->Character.toUpperCase(x)).collect(Collectors.toCollection(ArrayList::new));
+
         characters.add('a');
         System.out.println("List of characters: " + characters);
+        System.out.println(characters1);
 
     }
 }

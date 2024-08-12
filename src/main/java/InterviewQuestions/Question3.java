@@ -1,4 +1,4 @@
-package org.Learn.InterviewQuestions;
+package InterviewQuestions;
 
 import java.util.*;
 
