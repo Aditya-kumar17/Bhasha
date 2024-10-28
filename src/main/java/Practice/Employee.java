@@ -2,7 +2,7 @@ package Practice;
 
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
     @Override
     public String toString() {
         return "Employee{" +
@@ -57,5 +57,10 @@ public class Employee {
 
     public void setAddress(String address){
         this.address = address;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.id-o.id;
     }
 }

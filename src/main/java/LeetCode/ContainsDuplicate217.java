@@ -1,9 +1,10 @@
 package LeetCode;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ContainsDuplicate217 {
+public class ContainsDuplicate217 extends Object{
 
     public static void main(String[] args) {
         System.out.println("hello");
@@ -17,6 +18,7 @@ public class ContainsDuplicate217 {
                 return true;
         }
         return false;
+
     }
 }
 
